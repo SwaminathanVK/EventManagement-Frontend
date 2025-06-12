@@ -1,9 +1,8 @@
-// src/api/axios.ts (or axios.js)
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://eventmanagement-backend-u4yf.onrender.com/api' ||'http://localhost:3000/api', // Adjust your backend URL as needed
-  // You might need to add other default headers here if necessary
+  baseURL: 'https://eventmanagement-backend-u4yf.onrender.com/api' ||'http://localhost:3000/api', 
+  
 });
 
 // Request Interceptor
