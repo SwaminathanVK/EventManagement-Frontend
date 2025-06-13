@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => { // Removed type annotation for c
       if (token) {
         API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         try {
-          const res = await API.get('/auth/me'); // Removed type assertion for response
+          const res = await API.get('https://eventmanagement-backend-u4yf.onrender.com/api/auth/me'); // Removed type assertion for response
           setUser(res.data.user);
           setIsAuthenticated(true);
         } catch (error) {

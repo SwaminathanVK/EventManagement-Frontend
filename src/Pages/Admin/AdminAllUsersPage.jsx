@@ -1,19 +1,16 @@
-// src/pages/Admin/AdminAllUsersPage.js
-
 import React, { useEffect, useState } from 'react';
-import API from '../../api/axios'; // your configured axios instance
+import API from '../../api/axios';
 import { toast } from 'react-toastify';
-import { FaSpinner } from 'react-icons/fa'; // Import FaSpinner
+import { FaSpinner } from 'react-icons/fa'; 
 
-// In JavaScript, we don't use explicit interfaces.
-// The structure of a 'User' object will be determined at runtime.
 
-const AdminAllUsersPage = () => { // Removed React.FC
-  const [users, setUsers] = useState([]); // Removed type annotation <User[]>
-  const [loading, setLoading] = useState(true); // Removed type annotation <boolean>
+
+const AdminAllUsersPage = () => { 
+  const [users, setUsers] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   const fetchUsers = async () => {
-    setLoading(true); // Set loading to true when fetching starts
+    setLoading(true); 
     try {
       const response = await API.get('/admin/users'); // Removed explicit type <{ users: User[] }>
       setUsers(response.data.users || []); // Handle potential empty array

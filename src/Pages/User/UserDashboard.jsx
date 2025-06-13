@@ -73,7 +73,7 @@ const UserDashboard = () => {
     }
 
     try {
-      await API.post(`/api/registration/cancel/${registrationId}`);
+      await API.post(`/registration/cancel/${registrationId}`);
       toast.success('Ticket cancelled successfully!');
       fetchDashboardData(); // Re-fetch to update the list
     } catch (err) {
@@ -200,7 +200,7 @@ const UserDashboard = () => {
             <div className="bg-white rounded-xl shadow-md p-8 text-center text-gray-600 border border-dashed border-gray-300">
               <p className="text-lg mb-4">It looks like you haven't booked any tickets yet!</p>
               <Link
-                to="/events"
+                to="/events/"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200"
               >
                 Explore Events

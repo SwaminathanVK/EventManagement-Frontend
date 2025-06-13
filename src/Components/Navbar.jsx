@@ -31,18 +31,18 @@ const Navbar = () => {
   // }
 
   // Determine navigation links based on user role
-  const getNavLinks = () => { // Removed type annotation for return value
-    // If authentication is still loading, return an empty array or loading links
+  const getNavLinks = () => { 
+    
     if (loading) return [];
-    // If not authenticated, show public links (or no links if they require auth)
+    
     if (!isAuthenticated) {
       return [
-        { label: 'Events', to: '/' }, // Example public link
+        { label: 'Events', to: '/' },
       ];
     }
 
     // Authenticated user links based on role
-    switch (user?.role) { // Use optional chaining just in case user is null/undefined
+    switch (user?.role) { 
       case 'admin':
         return [
           { label: 'Dashboard', to: '/admin/dashboard' },
@@ -73,9 +73,9 @@ const Navbar = () => {
   };
 
   // Check if a link is active for highlighting
-  const isActive = (path) => location.pathname === path; // Removed type annotation
+  const isActive = (path) => location.pathname === path; 
 
-  const currentNavLinks = getNavLinks(); // Get links for current state
+  const currentNavLinks = getNavLinks(); 
 
   return (
     <nav className="bg-gray-900 text-white shadow-md sticky top-0 z-50">

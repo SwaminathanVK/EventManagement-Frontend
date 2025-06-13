@@ -41,8 +41,8 @@ const AdminAllEventsPage = () => { // Removed React.FC
     try {
       await API.delete(`/admin/events/${eventId}`); // Removed explicit type <any>
       toast.success("Event deleted successfully");
-      fetchAllEvents(); // Refresh the list
-    } catch (err) { // Removed type annotation : any
+      fetchAllEvents(); 
+    } catch (err) { 
       toast.error(err.response?.data?.message || "Failed to delete event");
     }
   };
@@ -55,7 +55,7 @@ const AdminAllEventsPage = () => { // Removed React.FC
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">All Events</h2>
       <button
-        onClick={() => navigate('/admin/events/create')}
+        onClick={() => navigate('https://eventmanagement-backend-u4yf.onrender.com/api/admin/events/create')}
         className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mb-4"
       >
         + Create Event

@@ -1,16 +1,13 @@
-// src/pages/Admin/AdminAllOrganizersPage.js
-
 import React, { useEffect, useState } from 'react';
-import API from '../../api/axios'; // your configured axios instance
+import API from '../../api/axios'; 
 import { toast } from 'react-toastify';
-import { FaSpinner } from 'react-icons/fa'; // Import FaSpinner
+import { FaSpinner } from 'react-icons/fa'; 
 
-// In JavaScript, we don't use explicit interfaces.
-// The structure of an 'Organizer' object will be determined at runtime.
 
-const AdminAllOrganizersPage = () => { // Removed React.FC
-  const [organizers, setOrganizers] = useState([]); // Removed type annotation <Organizer[]>
-  const [loading, setLoading] = useState(true); // Removed type annotation <boolean>
+
+const AdminAllOrganizersPage = () => { 
+  const [organizers, setOrganizers] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   const fetchOrganizers = async () => {
     setLoading(true); // Set loading to true when fetching starts

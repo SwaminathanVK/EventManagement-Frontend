@@ -114,7 +114,7 @@ const UserProfilePage = () => { // Removed React.FC
 
       // API call to update user profile.
       const res = await API.put(
-        "/user/profile",
+        "/user/putprofile",
         updateData
       ); // Removed type annotation: <{ message: string; user: User }>
       toast.success(res.data.message || "Profile updated successfully!");
