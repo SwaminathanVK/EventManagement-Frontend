@@ -4,7 +4,7 @@ This is the React.js frontend for the Event Management Platform, designed for se
 Built using React, Vite, Tailwind CSS, and connected to the backend via secure API calls.
 
 🌐 Live Demo
-🔗 Frontend Hosted On: https://eventmanagement-frontend-url.vercel.app
+🔗 Frontend Hosted On: https://famous-souffle-ff686b.netlify.app/
 🔗 Backend API: https://eventmanagement-backend-u4yf.onrender.com/api
 
 ⚙️ Tech Stack
