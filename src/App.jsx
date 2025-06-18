@@ -24,6 +24,7 @@ import BookingSuccessPage from './Pages/User/BookingSuccessPage.jsx';
 import PaymentSuccessPage from './Pages/User/PaymentSuccessPage.jsx'; 
 import PaymentCancelPage from './Pages/User/PaymentCancelPage.jsx';
 import TransferTicketModal from './Pages/User/TransferTicketModal.jsx'
+import UserRoutes from './Routes/UserRoutes.jsx';
 
 // --- Organizer-Specific Pages (Accessible by 'organizer', 'admin' roles) ---
 import OrganizerDashboard from './Pages/Organizer/OrganizerDashboard.jsx'; 
