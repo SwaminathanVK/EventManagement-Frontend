@@ -100,7 +100,7 @@ const UserRoutes = () => { // Removed React.FC type
 
       {/* Payment Success Page */}
       <Route
-        path="/payment-success" // Corresponds to /user/payment-success
+        path="payment/success" // Corresponds to /user/payment-success
         element={
           <ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}>
             <PaymentSuccessPage />
