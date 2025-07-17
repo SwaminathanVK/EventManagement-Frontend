@@ -100,10 +100,11 @@ function App() {
             <Route index element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><UserDashboard /></ProtectedRoute>} />
             <Route path="dashboard" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><UserDashboard /></ProtectedRoute>} />
             <Route path="profile" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><UserProfilePage /></ProtectedRoute>} />
-            <Route path="my-tickets" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><UserTicketsPage /></ProtectedRoute>} />
+            <Route path="my-tickets" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><UserTicketsPage/></ProtectedRoute>} />
+          
             <Route path="booking-success" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><BookingSuccessPage /></ProtectedRoute>} />
-            <Route path="payment-success" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><PaymentSuccessPage /></ProtectedRoute>} />
-            <Route path="payment-cancel" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><PaymentCancelPage /></ProtectedRoute>} />
+            <Route path="payment/success" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><PaymentSuccessPage /></ProtectedRoute>} />
+            <Route path="payment/cancel" element={<ProtectedRoute allowedRoles={['user', 'organizer', 'admin']}><PaymentCancelPage /></ProtectedRoute>} />
             
             {/* Organizer's Create Event page accessed via user prefix (if organizer is also a user) */}
             <Route path="create-event" element={<ProtectedRoute allowedRoles={['organizer', 'admin']}><CreateEventPage /></ProtectedRoute>} />

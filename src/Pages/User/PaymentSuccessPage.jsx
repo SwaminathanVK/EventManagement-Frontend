@@ -1,14 +1,16 @@
-// src/pages/PaymentSuccessPage.jsx
+//  /src/pages/PaymentSuccessPage.jsx
 
 import React, { useEffect, useState } from 'react'; // Added useState
 import { useNavigate, Link, useLocation } from 'react-router-dom'; // Added useLocation
 import { toast } from 'react-toastify';
 import { FaCheckCircle, FaTicketAlt, FaHome, FaSpinner, FaTimesCircle } from 'react-icons/fa'; // Added more icons
 import API from '../../api/axios'; // Import your API instance
+import { useAuth } from '../../Context/AuthContext'; // Import useAuth
 
 const PaymentSuccessPage = () => {
   const navigate = useNavigate();
   const location = useLocation(); // To access URL query parameters
+  const { isAuthenticated, loading } = useAuth(); // Track auth readiness
 
   const [confirmationStatus, setConfirmationStatus] = useState('pending'); // 'pending', 'success', 'error'
   const [errorMessage, setErrorMessage] = useState('');
@@ -17,12 +19,11 @@ const PaymentSuccessPage = () => {
     const query = new URLSearchParams(location.search);
     const sessionId = query.get('session_id'); // Get the session_id from URL
 
-    if (sessionId) {
+    // Run only after auth is loaded and user is authenticated
+    if (!loading && isAuthenticated && sessionId) {
       const confirmPayment = async () => {
         try {
-          // Make the API call to your backend to confirm the payment
-          // Your backend's confirmPayment expects sessionId in the request body
-          const res = await API.post('/payment/confirm/payment', { sessionId }); // Assuming '/payment/confirm' is your backend endpoint
+          const res = await API.post('api/payment/confirm/payment', { sessionId });
 
           if (res.status === 200) {
             setConfirmationStatus('success');
@@ -50,12 +51,12 @@ const PaymentSuccessPage = () => {
 
       confirmPayment();
     } else {
-      // No session_id found in URL
+      // No session_id found in URL or user not authenticated
       setConfirmationStatus('error');
-      setErrorMessage('Payment session ID missing from URL. Cannot verify payment.');
-      toast.error('Payment verification failed: Session ID missing.', { autoClose: false });
+      setErrorMessage('Payment session ID missing or user not authenticated. Cannot verify payment.');
+      toast.error('Payment verification failed: Missing session ID or not authenticated.', { autoClose: false });
     }
-  }, [location, navigate]); // Rerun if URL location changes
+  }, [location, isAuthenticated, loading, navigate]); // Rerun if URL location changes or auth status changes
 
   // Conditional rendering based on confirmation status
   if (confirmationStatus === 'pending') {
